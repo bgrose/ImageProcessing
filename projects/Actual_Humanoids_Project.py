@@ -17,10 +17,12 @@ while(capture.isOpened()):
     faces = face_cascade.detectMultiScale(gray, 1.3, 5)
     faces_alt = face_alt_cascade.detectMultiScale(gray, 1.3, 5)
 
-    for (x,y,w,h) in eyes:
-        cv2.rectangle(img, (x,y), (x+w, y+h),(255, 255, 255) , 3)
+    #for (x,y,w,h) in eyes:
+    #   cv2.rectangle(img, (x,y), (x+w, y+h),(255, 255, 255) , 3)
+
     for (x,y,w,h) in faces:
         cv2.rectangle(img, (x,y), (x+w, y+h),(255, 0, 0) , 3)
+        img = cv2.putText(img, 'Bradley', (x, y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0,0,0), 2)
     for (x,y,w,h) in faces_alt:
         cv2.rectangle(img, (x,y), (x+w, y+h),(255, 0, 0) , 3)
         
