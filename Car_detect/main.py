@@ -9,6 +9,7 @@ cap = cv2.VideoCapture(video_src)
 car_cascade = cv2.CascadeClassifier(cascade_src)
 fourcc = cv2.VideoWriter_fourcc(*'XVID')
 out = cv2.VideoWriter('output.avi', fourcc, 20.0, (640,480))
+font = cv2.FONT_HERSHEY_COMPLEX_SMALL
 
 while(True):
     ret, img = cap.read()
@@ -18,6 +19,9 @@ while(True):
     img = cv2.resize(img, (640, 480))
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     cars = car_cascade.detectMultiScale(gray, 1.2, 1)
+
+    numOfCars= str(len(cars)) + " cars found"
+    img = cv2.putText(img, numOfCars, (10,50), font, 1, (0,255, 255), 2, cv2.LINE_AA) 
 
     for(x, y, w, h) in cars:
         cv2.rectangle(img, (x,y), (x+w,y+h), (0,0,225), 2)
