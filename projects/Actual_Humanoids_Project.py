@@ -22,7 +22,7 @@ while(capture.isOpened()):
 
     for (x,y,w,h) in faces:
         cv2.rectangle(img, (x,y), (x+w, y+h),(255, 0, 0) , 3)
-        img = cv2.putText(img, 'Bradley', (x, y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0,0,0), 2)
+        img = cv2.putText(img, 'Human Face', (x, y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (225,225,225), 2)
     for (x,y,w,h) in faces_alt:
         cv2.rectangle(img, (x,y), (x+w, y+h),(255, 0, 0) , 3)
         
