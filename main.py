@@ -2,8 +2,6 @@ import numpy as np
 import cv2
 import math
 
-# Open Camera
-'''capture = cv2.VideoCapture('http://192.168.43.131:4747/video')'''
 capture = cv2.VideoCapture(0)
 while capture.isOpened():
 
