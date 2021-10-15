@@ -1,11 +1,14 @@
+import time
 import cv2
 import streamlit as st
 
 st.title("Webcam Live Feed")
 run = st.checkbox('Run')
 FRAME_WINDOW = st.image([])
+
 camera = cv2.VideoCapture(0)
 face_cascade = cv2.CascadeClassifier('Streamlit\haarcascade_frontalface_default.xml')
+
 
 while run:
     _, img = camera.read()
@@ -17,6 +20,7 @@ while run:
     
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     FRAME_WINDOW.image(img)
+    
 
 else:
     st.write('Stopped')
